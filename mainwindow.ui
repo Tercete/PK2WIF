@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>652</width>
+    <height>329</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lblPrivateKey">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Private Key (Hex):</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edPrivateKey">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>20</y>
+      <width>491</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="gbWay">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>621</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Conversão a Realizar</string>
+    </property>
+    <widget class="QRadioButton" name="rbHex2WIF">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Hexadecimal to WIF</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbWIF2Hex">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>WIF to Hexadecimal</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chkCompressed">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>30</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Comprimida</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="lblWIF">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>WIF Private Key:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="edWIFPK">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>200</y>
+      <width>491</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btOK">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>250</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btCancel">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>250</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>652</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>edPrivateKey</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ValidaPK()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>147</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>147</x>
+     <y>74</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btOK</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Processa()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>194</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Encerra()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>351</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edWIFPK</sender>
+   <signal>editingFinished()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ValidaWIF()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>157</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>177</x>
+     <y>262</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbWIF2Hex</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SelecionaWIF2PK(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>48</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rbHex2WIF</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>SelecionaPK2WIF(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>289</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>ValidaPK()</slot>
+  <slot>Processa()</slot>
+  <slot>Encerra()</slot>
+  <slot>ValidaWIF()</slot>
+  <slot>SelecionaPK2WIF(bool)</slot>
+  <slot>SelecionaWIF2PK(bool)</slot>
+ </slots>
+</ui>
