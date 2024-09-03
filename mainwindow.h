@@ -41,6 +41,7 @@
 #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEnginePage>
 #include <QtWebEngineWidgets/QWebEngineSettings>
+#include <QClipboard>
 
 using namespace std;
 
@@ -66,5 +67,7 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
+    QClipboard*     m_pClipboard ;
+
 };
 #endif // MAINWINDOW_H

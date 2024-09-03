@@ -8,10 +8,10 @@
 #include <string>
 #include <vector>
 
-#ifdef QT_VERSION
+//#ifdef QT_VERSION
 #include <QString>
 #include <QByteArray>
-#endif
+//#endif
 
 /**
  * Encode a byte sequence as a base58-encoded string.

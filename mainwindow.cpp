@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    m_pClipboard = QGuiApplication::clipboard();
 }
 
 MainWindow::~MainWindow()
@@ -115,6 +116,7 @@ void MainWindow::Processa()
         QString szResultado = encodeBase58(const_cast<unsigned char*>((unsigned char*)pInicio), const_cast<unsigned char*>((unsigned char*)pFinal)).c_str();
         qDebug() << szResultado;
         ui->edWIFPK->setText(szResultado);
+        m_pClipboard->setText(szResultado);
     } else {
         /*
 
@@ -190,9 +192,14 @@ void MainWindow::Processa()
         if(obResultado.toHex().left(8) != szCheckSum) {
             QMessageBox::critical(0, tr("Erro"), tr("Checksum NAO CONFERE!!"));
         } else {
+            if(ui->chkCompressed->isChecked()) {
+                szResultado = szResultado.left(szResultado.size()-2);
+            }
             ui->edPrivateKey->setText( szResultado.mid((2)) );
+            m_pClipboard->setText(szResultado.mid((2)));
         }
     }
+
 }
 
 void MainWindow::Encerra()
@@ -203,7 +210,7 @@ void MainWindow::Encerra()
 void MainWindow::SelecionaWIF2PK(bool)
 {
     ui->edPrivateKey->setText("");
-    ui->chkCompressed->setCheckState(Qt::Unchecked);
+    //ui->chkCompressed->setCheckState(Qt::Unchecked);
 }
 
 void MainWindow::SelecionaPK2WIF(bool)
