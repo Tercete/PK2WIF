@@ -5,8 +5,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++14
 
 INCLUDEPATH += \
+    ../Include \
     ../Bitcoin/src/ \
-    #../Bitcoin-v0.1-master/bitcoin0.1/src/ \
     ../openssl-1.0.2e/include/
 
 # The following define makes your compiler emit warnings if you use
@@ -21,12 +21,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    base58.cpp \
+    ../Include/base58.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    base58.h \
+    ../Include/base58.h \
     mainwindow.h
 
 FORMS += \
